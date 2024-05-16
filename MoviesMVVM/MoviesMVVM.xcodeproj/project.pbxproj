@@ -71,6 +71,10 @@
 		109D67912BF2901D00B42423 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 109D67902BF2901D00B42423 /* FirebaseStorageCombine-Community */; };
 		109D67992BF2923B00B42423 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 109D67982BF2923B00B42423 /* GoogleSignIn */; };
 		109D679B2BF2923B00B42423 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 109D679A2BF2923B00B42423 /* GoogleSignInSwift */; };
+		109E59B72BF6818100394776 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 109E59B62BF6818100394776 /* Lottie */; };
+		109E59BD2BF688EF00394776 /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 109E59BC2BF688EF00394776 /* animation.json */; };
+		109E59BF2BF68AB900394776 /* SignIn.json in Resources */ = {isa = PBXBuildFile; fileRef = 109E59BE2BF68AB900394776 /* SignIn.json */; };
+		109E59C32BF68E5000394776 /* profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 109E59C22BF68E4F00394776 /* profile.json */; };
 		109E6DA72B39E3E50028827E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109E6DA62B39E3E50028827E /* AppDelegate.swift */; };
 		109E6DA92B39E3E50028827E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109E6DA82B39E3E50028827E /* SceneDelegate.swift */; };
 		109E6DAB2B39E3E50028827E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109E6DAA2B39E3E50028827E /* HomeViewController.swift */; };
@@ -137,6 +141,9 @@
 		109BBA5E2B4F3C8D007AEFB7 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		109C685F2B69763C009FB8A6 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		109D676B2BF28B2E00B42423 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		109E59BC2BF688EF00394776 /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
+		109E59BE2BF68AB900394776 /* SignIn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SignIn.json; sourceTree = "<group>"; };
+		109E59C22BF68E4F00394776 /* profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = profile.json; sourceTree = "<group>"; };
 		109E6DA32B39E3E50028827E /* MoviesMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		109E6DA62B39E3E50028827E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109E6DA82B39E3E50028827E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +178,7 @@
 				109D67912BF2901D00B42423 /* FirebaseStorageCombine-Community in Frameworks */,
 				109D679B2BF2923B00B42423 /* GoogleSignInSwift in Frameworks */,
 				109D678D2BF2901D00B42423 /* FirebaseFirestoreSwift in Frameworks */,
+				109E59B72BF6818100394776 /* Lottie in Frameworks */,
 				109D67852BF2901D00B42423 /* FirebaseDatabase in Frameworks */,
 				109D677D2BF2901D00B42423 /* FirebaseAnalyticsSwift in Frameworks */,
 				109D678B2BF2901D00B42423 /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -456,6 +464,16 @@
 			path = Locale;
 			sourceTree = "<group>";
 		};
+		109E59B22BF6795D00394776 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				109E59BC2BF688EF00394776 /* animation.json */,
+				109E59BE2BF68AB900394776 /* SignIn.json */,
+				109E59C22BF68E4F00394776 /* profile.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		109E6D9A2B39E3E50028827E = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +511,7 @@
 				109E6DAF2B39E3E70028827E /* Assets.xcassets */,
 				109E6DB12B39E3E70028827E /* LaunchScreen.storyboard */,
 				109E6DB42B39E3E70028827E /* Info.plist */,
+				109E59B22BF6795D00394776 /* Animation */,
 			);
 			path = MoviesMVVM;
 			sourceTree = "<group>";
@@ -543,6 +562,7 @@
 				109D67902BF2901D00B42423 /* FirebaseStorageCombine-Community */,
 				109D67982BF2923B00B42423 /* GoogleSignIn */,
 				109D679A2BF2923B00B42423 /* GoogleSignInSwift */,
+				109E59B62BF6818100394776 /* Lottie */,
 			);
 			productName = MoviesMVVM;
 			productReference = 109E6DA32B39E3E50028827E /* MoviesMVVM.app */;
@@ -577,6 +597,7 @@
 				109705882BEF8B9C000FAA5F /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 				109D67772BF2901D00B42423 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				109D67972BF2923B00B42423 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				109E59B52BF6818100394776 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 109E6DA42B39E3E50028827E /* Products */;
 			projectDirPath = "";
@@ -592,6 +613,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				109E59C32BF68E5000394776 /* profile.json in Resources */,
+				109E59BF2BF68AB900394776 /* SignIn.json in Resources */,
 				109E6DB32B39E3E70028827E /* LaunchScreen.storyboard in Resources */,
 				109597622B4729A500D5B1B5 /* DetailsHeaderView.xib in Resources */,
 				109E6DB02B39E3E70028827E /* Assets.xcassets in Resources */,
@@ -602,6 +625,7 @@
 				104AACB22B6031B600C77ABE /* CartTableViewCell.xib in Resources */,
 				109744962B59B33300D8AE3C /* GenresHomeCollectionViewCell.xib in Resources */,
 				109B8D342B4DB6E400C565AE /* CastCollectionViewCell.xib in Resources */,
+				109E59BD2BF688EF00394776 /* animation.json in Resources */,
 				10B1D6812B42DB9500184AEF /* HomeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -907,6 +931,14 @@
 				kind = branch;
 			};
 		};
+		109E59B52BF6818100394776 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		109E6DBA2B39E4650028827E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -997,6 +1029,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 109D67972BF2923B00B42423 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		109E59B62BF6818100394776 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 109E59B52BF6818100394776 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		109E6DBB2B39E4650028827E /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

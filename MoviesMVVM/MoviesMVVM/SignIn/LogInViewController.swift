@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
+import Lottie
 
 class LogInViewController: UIViewController {
     
@@ -16,10 +17,13 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var loginGoogleButton: UIButton!
     
+    
+    @IBOutlet weak var animationImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setUpAnimation()
     }
     
     @IBAction func signUpDidTapped(_ sender: Any) {
@@ -33,6 +37,19 @@ class LogInViewController: UIViewController {
     
     @IBAction func LogInWithGoogleDidTapped(_ sender: Any) {
         self.logInWithGoggle()
+        
+    }
+    
+    func setUpAnimation() {
+        
+        let animation = LottieAnimationView(name: "animation")
+        animation.contentMode = .scaleAspectFill
+        animation.center = self.animationImageView.center
+        animation.frame = self.animationImageView.bounds
+        animation.loopMode = .loop
+        animation.play()
+        self.animationImageView.addSubview(animation)
+        
         
     }
 }

@@ -1078,8 +1078,8 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wall" translatesAutoresizingMaskIntoConstraints="NO" id="yKM-NW-g49">
-                                <rect key="frame" x="121" y="92" width="184" height="198"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yKM-NW-g49">
+                                <rect key="frame" x="20" y="44" width="374" height="288"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1135,6 +1135,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                     </view>
                     <navigationItem key="navigationItem" id="VbI-P1-C3t"/>
                     <connections>
+                        <outlet property="animationImageView" destination="yKM-NW-g49" id="Ws7-4S-Uo2"/>
                         <outlet property="logInButton" destination="O5B-uP-vcc" id="vlj-q5-pDl"/>
                         <outlet property="loginGoogleButton" destination="7Zo-uM-Y0h" id="YhE-Tb-nsY"/>
                         <outlet property="signUpButton" destination="SHN-Tt-EMi" id="RzL-ON-3TL"/>
@@ -1145,7 +1146,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oEX-0c-Kbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-522" y="334"/>
+            <point key="canvasLocation" x="-523.1884057971015" y="333.48214285714283"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="arX-BH-s0f">
@@ -1155,18 +1156,6 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nLb-oa-a6E">
-                                <rect key="frame" x="38" y="233" width="351" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zwf-2g-0rX">
-                                <rect key="frame" x="38" y="291" width="351" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sp3-VV-GO6">
                                 <rect key="frame" x="26" y="114" width="327" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1174,8 +1163,34 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbJ-e9-mMF">
+                                <rect key="frame" x="26" y="160" width="368" height="271"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONt-ai-w97">
+                                <rect key="frame" x="20" y="160" width="374" height="271"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nLb-oa-a6E">
+                                <rect key="frame" x="32" y="462" width="351" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zwf-2g-0rX">
+                                <rect key="frame" x="32" y="520" width="351" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QiR-dh-jqd">
-                                <rect key="frame" x="86" y="375" width="255" height="35"/>
+                                <rect key="frame" x="80" y="604" width="255" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1197,6 +1212,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                     </view>
                     <navigationItem key="navigationItem" id="JMz-RE-aJm"/>
                     <connections>
+                        <outlet property="animationImageView" destination="ONt-ai-w97" id="fbr-0Q-RzB"/>
                         <outlet property="emailTextField" destination="nLb-oa-a6E" id="f1C-XG-Ibq"/>
                         <outlet property="passwordTextField" destination="Zwf-2g-0rX" id="Qeb-Cf-rx0"/>
                         <outlet property="signInButton" destination="QiR-dh-jqd" id="nHE-j2-q3h"/>
@@ -1205,7 +1221,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q12-AI-flI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="-449"/>
+            <point key="canvasLocation" x="-13.043478260869566" y="-449.33035714285711"/>
         </scene>
         <!--Sepet-->
         <scene sceneID="7eu-kb-lq8">
@@ -1283,8 +1299,8 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0YM-2m-0RP">
-                                <rect key="frame" x="143" y="172" width="128" height="123"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0YM-2m-0RP">
+                                <rect key="frame" x="135" y="160" width="145" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1301,26 +1317,32 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plus.app.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oOz-7C-Caa">
+                                <rect key="frame" x="238" y="267" width="30" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hdl-ET-Yhs">
-                                <rect key="frame" x="32" y="329" width="351" height="34"/>
+                                <rect key="frame" x="32" y="360" width="351" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Cf-Fu-7zK">
-                                <rect key="frame" x="32" y="396" width="351" height="34"/>
+                                <rect key="frame" x="32" y="427" width="351" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZkW-Rg-MO9">
-                                <rect key="frame" x="32" y="462" width="351" height="34"/>
+                                <rect key="frame" x="32" y="493" width="351" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8Q-UF-wp0">
-                                <rect key="frame" x="80" y="535" width="255" height="35"/>
+                                <rect key="frame" x="80" y="566" width="255" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1335,12 +1357,6 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                                     <action selector="signUpButtonClicked:" destination="toA-C4-8XN" eventType="touchUpInside" id="YNj-mX-Ogw"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plus.app.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oOz-7C-Caa">
-                                <rect key="frame" x="227" y="264" width="30" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="trd-v3-bLa"/>
                         <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1348,6 +1364,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                     </view>
                     <navigationItem key="navigationItem" id="aNh-mR-ILt"/>
                     <connections>
+                        <outlet property="animationImageView" destination="0YM-2m-0RP" id="MBU-zZ-zou"/>
                         <outlet property="emailTextField" destination="8Cf-Fu-7zK" id="rR6-3U-t7F"/>
                         <outlet property="passwordTextFeild" destination="ZkW-Rg-MO9" id="z7i-ie-ImJ"/>
                         <outlet property="profileImage" destination="0YM-2m-0RP" id="e4V-BB-2t9"/>
@@ -1358,7 +1375,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6R-3s-XWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13" y="1100"/>
+            <point key="canvasLocation" x="-13.043478260869566" y="1099.5535714285713"/>
         </scene>
         <!--Ayarlar-->
         <scene sceneID="NsC-JX-Oac">
@@ -1409,7 +1426,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vP1-Pk-qNh"/>
+        <segue reference="LD3-DG-DPe"/>
         <segue reference="Tv1-Gi-K83"/>
         <segue reference="RV0-wq-VCk"/>
     </inferredMetricsTieBreakers>
@@ -1422,7 +1439,6 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
         <image name="line.horizontal.3" catalog="system" width="128" height="65"/>
         <image name="moon" catalog="system" width="128" height="123"/>
         <image name="move.3d" catalog="system" width="128" height="106"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="profile" width="200" height="200"/>
         <image name="questionmark.circle" catalog="system" width="128" height="123"/>
@@ -1430,9 +1446,11 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="timer" catalog="system" width="128" height="123"/>
-        <image name="wall" width="1024" height="1024"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

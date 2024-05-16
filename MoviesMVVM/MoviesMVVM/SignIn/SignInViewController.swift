@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class SignInViewController: UIViewController {
     
@@ -13,8 +14,13 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     
+    @IBOutlet weak var animationImageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpAnimation()
 
     }
     
@@ -27,6 +33,19 @@ class SignInViewController: UIViewController {
             self.makeAlert(titleInput: "Error", messageInput: "The password is invalid or the user does not have a password.")
 
         }
+    }
+    
+    func setUpAnimation() {
+        
+        let animation = LottieAnimationView(name: "SignIn")
+        animation.contentMode = .scaleAspectFill
+        animation.center = self.animationImageView.center
+        animation.frame = self.animationImageView.bounds
+        animation.loopMode = .loop
+        animation.play()
+        self.animationImageView.addSubview(animation)
+        
+        
     }
 }
 

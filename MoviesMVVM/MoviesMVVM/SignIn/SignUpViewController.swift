@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import PhotosUI
 import FirebaseStorage
+import Lottie
 
 
 class SignUpViewController: UIViewController {
@@ -19,8 +20,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextFeild: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var animationImageView: UIImageView!
     
     var image: UIImage? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,7 @@ class SignUpViewController: UIViewController {
         profileImage.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
         profileImage.addGestureRecognizer(gestureRecognizer)
+        setUpAnimation()
 
     }
     
@@ -46,6 +50,19 @@ class SignUpViewController: UIViewController {
                     print(error)
                 }
             }
+    
+    func setUpAnimation() {
+        
+        let animation = LottieAnimationView(name: "profile")
+        animation.contentMode = .scaleAspectFill
+        animation.center = self.animationImageView.center
+        animation.frame = self.animationImageView.bounds
+        animation.loopMode = .loop
+        animation.play()
+        self.animationImageView.addSubview(animation)
+        
+        
+    }
 }
 
 extension SignUpViewController: PHPickerViewControllerDelegate {
