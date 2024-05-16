@@ -450,6 +450,7 @@
 		109C685E2B697621009FB8A6 /* Locale */ = {
 			isa = PBXGroup;
 			children = (
+				109D676B2BF28B2E00B42423 /* GoogleService-Info.plist */,
 				109C685F2B69763C009FB8A6 /* Locale.swift */,
 			);
 			path = Locale;
@@ -492,7 +493,6 @@
 				109E6DAF2B39E3E70028827E /* Assets.xcassets */,
 				109E6DB12B39E3E70028827E /* LaunchScreen.storyboard */,
 				109E6DB42B39E3E70028827E /* Info.plist */,
-				109D676B2BF28B2E00B42423 /* GoogleService-Info.plist */,
 			);
 			path = MoviesMVVM;
 			sourceTree = "<group>";
