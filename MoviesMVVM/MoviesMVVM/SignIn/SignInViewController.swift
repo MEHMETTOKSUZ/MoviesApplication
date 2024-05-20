@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
     
@@ -25,14 +26,14 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInDidTapped(_ sender: Any) {
-        self.validateFields()
-        self.view.endEditing(true)
-        self.signIn {
-            self.performSegue(withIdentifier: "toHomeViewControllerFromSingIn", sender: nil)
-        } onError: { errorMessage in
-            self.makeAlert(titleInput: "Error", messageInput: "The password is invalid or the user does not have a password.")
-
-        }
+        guard validateFields() else { return }
+               
+               self.view.endEditing(true)
+               self.signIn {
+                   self.performSegue(withIdentifier: "toHomeViewControllerFromSingIn", sender: nil)
+               } onError: { errorMessage in
+                   self.makeAlert(titleInput: "Error", messageInput: errorMessage)
+               }
     }
     
     func setUpAnimation() {
@@ -45,39 +46,46 @@ class SignInViewController: UIViewController {
         animation.play()
         self.animationImageView.addSubview(animation)
         
-        
     }
 }
 
 extension SignInViewController {
     
     func signIn(onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
-        Api.User.signIn(email: emailTextField.text!, password: passwordTextField.text!) {
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            onError("Email or password is missing")
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                onError(error.localizedDescription)
+                return
+            }
+            
             onSuccess()
-        } onError: { errorMessage in
-            onError(errorMessage)
         }
     }
     
-    func validateFields() {
-        
+    @discardableResult
+    func validateFields() -> Bool {
         guard let email = emailTextField.text, !email.isEmpty else {
             self.makeAlert(titleInput: "Error", messageInput: "Enter Email!")
-            return
+            return false
         }
         
         guard let password = passwordTextField.text, !password.isEmpty else {
             self.makeAlert(titleInput: "Error", messageInput: "Enter Password!")
-            return
+            return false
         }
+        
+        return true
     }
     
     func makeAlert(titleInput: String, messageInput: String) {
-        
-        let alert = UIAlertController.init(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
-        let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel)
+        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .cancel)
         alert.addAction(okButton)
         present(alert, animated: true)
-
     }
 }

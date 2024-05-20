@@ -29,6 +29,11 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RKD-Yp-dgW">
+                                    <rect key="frame" x="192" y="130" width="37" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </activityIndicatorView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcL-iq-ZTk">
                                     <rect key="frame" x="8" y="301" width="350" height="21.333333333333314"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -72,7 +77,7 @@
                                     <color key="tintColor" systemColor="linkColor"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BA-11-VDM">
-                                    <rect key="frame" x="8" y="451" width="394" height="79"/>
+                                    <rect key="frame" x="8" y="481" width="394" height="49"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,6 +120,13 @@
                                         <action selector="addCartButtonClicked:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="l4I-dE-Bc1"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjn-Bz-ILG">
+                                    <rect key="frame" x="10" y="452" width="214" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
@@ -135,9 +147,11 @@
                 <constraint firstAttribute="bottom" secondItem="wqF-o3-ZHT" secondAttribute="bottom" id="ssE-hC-yWe"/>
             </constraints>
             <connections>
+                <outlet property="activityIndicator" destination="RKD-Yp-dgW" id="47F-YQ-AO4"/>
                 <outlet property="addCartButton" destination="5p6-xT-9aa" id="r3D-8E-AeK"/>
                 <outlet property="commentButton" destination="BoN-nF-M4v" id="P7R-32-IH5"/>
                 <outlet property="favoriteButton" destination="4pS-p1-maw" id="LGC-hK-f4G"/>
+                <outlet property="genresLabel" destination="Vjn-Bz-ILG" id="Mnn-gJ-ox1"/>
                 <outlet property="imdbLabel" destination="nZn-cu-rhJ" id="2Zi-ic-Iz3"/>
                 <outlet property="nameLabel" destination="bcL-iq-ZTk" id="N4a-9L-vn6"/>
                 <outlet property="overViewLabel" destination="3BA-11-VDM" id="KkU-Pk-rXz"/>

@@ -9,8 +9,6 @@ import Foundation
 
 class VideosViewModel {
     
-    #warning("viewo id leri var youtube uygulama içinden izlet")
-    
     var videos: [DetailsHeaderView.ViewModel] = []
     var didFininshLoad: (() -> Void)?
     var didFinshLoadWithError: ((String) -> Void)?

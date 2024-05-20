@@ -55,7 +55,6 @@ class DetailsViewModel {
 extension DetailsUIModel {
     init(detailItem: HomeTableViewCell.ViewModel) {
         
-        
         self.init(id: detailItem.id,
                   imageUrl: detailItem.image,
                   nameTitle: detailItem.name,

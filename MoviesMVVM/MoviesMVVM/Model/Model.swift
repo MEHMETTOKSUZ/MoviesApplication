@@ -22,6 +22,15 @@ struct Results: Codable, Equatable {
     let genre_ids: [Int]
 }
 
+struct MovieGenres: Codable {
+    let genres: [Genre]
+}
+
+struct Genre: Codable {
+    let id: Int
+    let name: String
+}
+
 struct Credits: Codable {
     
     var cast: [Cast]

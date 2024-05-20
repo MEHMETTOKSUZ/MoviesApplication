@@ -14,18 +14,20 @@ class DetailsHeaderView: UICollectionReusableView , YTPlayerViewDelegate {
         let key: String
     }
     
+    
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var realeseDateLabel: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var overViewLabel: UILabel!
     @IBOutlet weak var imdbLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var addCartButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet weak var genresLabel: UILabel!
     
     var favoriteButtonClicked: (() -> ())?
     var commentButtonClicked: (() -> ())?
@@ -37,13 +39,14 @@ class DetailsHeaderView: UICollectionReusableView , YTPlayerViewDelegate {
         
         playerView.alpha = 0
         playerView.delegate = self
+        activityIndicator.hidesWhenStopped = true
         
     }
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        playerView.alpha = 1
-        
-    }
+            playerView.alpha = 1
+            activityIndicator.stopAnimating()
+        }
     
     func itemFromCell(item: DetailsUIModel) {
         if let image = item.imageUrl {

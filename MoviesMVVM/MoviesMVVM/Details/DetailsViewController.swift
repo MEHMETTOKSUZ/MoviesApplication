@@ -99,6 +99,8 @@ extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDel
             if data.isAddedCart || data.isRented {
                 if let key = self.videoViewModel.videos.first?.key {
                     DispatchQueue.main.async {
+                        view.activityIndicator.startAnimating()
+                        view.posterImage.isHidden = true
                         view.playerView.load(withVideoId: key)
                     }
                 } else {

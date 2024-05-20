@@ -20,7 +20,6 @@ class PaymentManager {
         if let data = userDefaults.data(forKey: purchasedKey),
            let items = try? JSONDecoder().decode([Results].self, from: data) {
             self.purchased = items
-            //sendNotification()
         }
     }
     
@@ -34,7 +33,7 @@ class PaymentManager {
         if let index = purchased.firstIndex(where: { $0.id == item.id }) {
             purchased.remove(at: index)
         } else {
-            purchased.append(item)
+            purchased.insert(item, at: 0)
         }
         savedItems()
         sendNotification()
