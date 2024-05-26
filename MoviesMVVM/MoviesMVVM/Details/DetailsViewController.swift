@@ -15,6 +15,7 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
     var viewModel: DetailsViewModel!
     let castViewModel = CastViewModel()
     let videoViewModel = VideosViewModel()
+    let genreViewModel = MovieGenresViewModel()
     var selectedMovieId = ""
     
     override func viewDidLoad() {
@@ -27,11 +28,36 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
         
         headerCollectionView.dataSource = self
         headerCollectionView.delegate = self
+        setupShareButton()
         
     }
 }
 
 extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func setupShareButton() {
+            let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTapped))
+            navigationItem.rightBarButtonItem = shareButton
+        }
+
+        @objc func shareButtonTapped() {
+            guard let movieTitle = viewModel.UIModel.data?.name else {
+                print("Film verisi mevcut değil.")
+                return
+            }
+
+            let textToShare = "Bu filmi tavsiye ediyorum: \(movieTitle)"
+            let websiteURL = URL(string: "https://www.themoviedb.org/movie/\(selectedMovieId)")
+
+            let items: [Any] = [textToShare, websiteURL ?? ""]
+            let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+
+            if let popoverController = activityViewController.popoverPresentationController {
+                popoverController.barButtonItem = navigationItem.rightBarButtonItem
+            }
+
+            self.present(activityViewController, animated: true, completion: nil)
+        }
     
     func registerCells() {
         
@@ -47,6 +73,7 @@ extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDel
         if !selectedMovieId.isEmpty {
             castViewModel.getCastData(selected: selectedMovieId)
             videoViewModel.getVideos(videoId: selectedMovieId)
+            genreViewModel.getGenres(movieId: selectedMovieId)
             
         } else {
             print("selectedMovieId is empty")
@@ -120,6 +147,9 @@ extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDel
             }
         }
         
+         let data = genreViewModel.genres
+            view.itemFromCellForGenres(item: data)
+        
         return view
     }
     
@@ -137,12 +167,19 @@ extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 32, height: collectionView.frame.height)
+        return CGSize(width: collectionView.frame.width - 32, height: 820)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width - 32, height: 100)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 32, height: collectionView.frame.height)
-    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            if let headerView = headerCollectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader).first as? DetailsHeaderView {
+                headerView.updateHeaderView(with: scrollView.contentOffset)
+            }
+        }
+
     
     func makeAlert(titleInput: String , messageInput: String) {
         
