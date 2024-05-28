@@ -21,6 +21,7 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
         PaymentManager.shared.loadPurchasedItems()
         RentManager.shared.loadRentedItems()
         registerCells()
@@ -28,19 +29,15 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
         
         headerCollectionView.dataSource = self
         headerCollectionView.delegate = self
-        setupShareButton()
         
     }
+   
 }
 
 extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func setupShareButton() {
-            let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareButtonTapped))
-            navigationItem.rightBarButtonItem = shareButton
-        }
 
-        @objc func shareButtonTapped() {
+         func shareButtonTapped() {
             guard let movieTitle = viewModel.UIModel.data?.name else {
                 print("Film verisi mevcut değil.")
                 return
@@ -150,6 +147,16 @@ extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDel
          let data = genreViewModel.genres
             view.itemFromCellForGenres(item: data)
         
+        view.backButtonClicked = {
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        view.shareButtonClicked = {
+            
+            self.shareButtonTapped()
+        }
+        
         return view
     }
     
@@ -161,9 +168,9 @@ extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -174,11 +181,16 @@ extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDel
         return CGSize(width: collectionView.frame.width - 32, height: 100)
     }
     
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            if let headerView = headerCollectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader).first as? DetailsHeaderView {
-                headerView.updateHeaderView(with: scrollView.contentOffset)
-            }
+       
+        let offsetY = scrollView.contentOffset.y
+        if offsetY <= 0 {
+            scrollView.contentOffset = CGPoint(x: 0, y: 0)
         }
+    }
+
 
     
     func makeAlert(titleInput: String , messageInput: String) {

@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" id="bgj-dr-Cet"/>
                     <connections>
                         <outlet property="tableView" destination="jui-RS-LMb" id="DfK-Lf-t3l"/>
-                        <segue destination="Dks-zl-LzW" kind="show" identifier="toDetailsFromGenresMovies" id="hzQ-jI-oQt"/>
+                        <segue destination="Dks-zl-LzW" kind="presentation" identifier="toDetailsFromGenresMovies" modalPresentationStyle="fullScreen" id="hzQ-jI-oQt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avz-zR-mSg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -98,11 +98,11 @@
             <objects>
                 <viewController id="14R-c5-SbA" customClass="CommentsViewController" customModule="MoviesMVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RUi-Jv-UOI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UtL-lR-m10">
-                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="790"/>
                                 <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JsH-SU-QUC">
                                     <size key="itemSize" width="128" height="128"/>
@@ -167,7 +167,7 @@
                     <navigationItem key="navigationItem" id="C06-FJ-raf"/>
                     <connections>
                         <outlet property="tableView" destination="olK-Xl-p5e" id="0hX-6R-4in"/>
-                        <segue destination="Dks-zl-LzW" kind="show" identifier="detailsFromSearch" id="wBC-nn-Oh7"/>
+                        <segue destination="Dks-zl-LzW" kind="presentation" identifier="detailsFromSearch" modalPresentationStyle="fullScreen" id="wBC-nn-Oh7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Gq-St-NLG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -218,8 +218,8 @@
                         <outlet property="genresButton" destination="uhJ-dc-r4z" id="2mb-qt-QGW"/>
                         <outlet property="searchButton" destination="01A-W7-had" id="yA6-sL-IAN"/>
                         <outlet property="tableView" destination="LHQ-MQ-otC" id="hY8-dq-ec4"/>
-                        <segue destination="Dks-zl-LzW" kind="show" identifier="detailsFromHome" id="RV0-wq-VCk"/>
-                        <segue destination="Dks-zl-LzW" kind="show" identifier="detailsFromHomeCollection" id="Kxg-Tz-Wz4"/>
+                        <segue destination="Dks-zl-LzW" kind="presentation" identifier="detailsFromHome" modalPresentationStyle="fullScreen" id="RV0-wq-VCk"/>
+                        <segue destination="Dks-zl-LzW" kind="presentation" identifier="detailsFromHomeCollection" modalPresentationStyle="fullScreen" id="Kxg-Tz-Wz4"/>
                         <segue destination="Gfh-Dt-3tu" kind="show" identifier="toGenresFromHome" id="BOm-2s-Twt"/>
                         <segue destination="f7b-YZ-lG3" kind="show" identifier="toSearchButton" id="3I1-OB-iSt"/>
                     </connections>
@@ -261,7 +261,7 @@
                     <navigationItem key="navigationItem" title="FAVORİLER" id="upe-6L-oL6"/>
                     <connections>
                         <outlet property="collectionView" destination="l5y-ag-Mcd" id="yqc-mW-ZnV"/>
-                        <segue destination="Dks-zl-LzW" kind="show" identifier="toDetailsFromFavorite" id="Uz0-io-ETg"/>
+                        <segue destination="Dks-zl-LzW" kind="presentation" identifier="toDetailsFromFavorite" modalPresentationStyle="fullScreen" id="Uz0-io-ETg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNe-0r-pBt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -277,7 +277,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ack-j1-61h">
-                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x9l-5X-RvR">
                                     <size key="itemSize" width="128" height="128"/>
@@ -292,14 +292,10 @@
                         <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ack-j1-61h" firstAttribute="top" secondItem="ciE-LN-CuT" secondAttribute="top" id="3gi-dS-QI7"/>
-                            <constraint firstItem="ack-j1-61h" firstAttribute="leading" secondItem="ciE-LN-CuT" secondAttribute="leading" id="NUK-zN-GuG"/>
-                            <constraint firstItem="ciE-LN-CuT" firstAttribute="bottom" secondItem="ack-j1-61h" secondAttribute="bottom" id="XEf-rt-O46"/>
-                            <constraint firstItem="ciE-LN-CuT" firstAttribute="trailing" secondItem="ack-j1-61h" secondAttribute="trailing" id="ZqE-FU-4NZ"/>
-                            <constraint firstItem="ack-j1-61h" firstAttribute="trailing" secondItem="ciE-LN-CuT" secondAttribute="trailing" id="aDQ-xX-KIv"/>
-                            <constraint firstItem="ack-j1-61h" firstAttribute="top" secondItem="ciE-LN-CuT" secondAttribute="top" id="gBj-Ev-gcc"/>
-                            <constraint firstItem="ack-j1-61h" firstAttribute="bottom" secondItem="ciE-LN-CuT" secondAttribute="bottom" id="sHL-81-Xqb"/>
-                            <constraint firstItem="ack-j1-61h" firstAttribute="leading" secondItem="ciE-LN-CuT" secondAttribute="leading" id="tac-vu-cVf"/>
+                            <constraint firstAttribute="bottom" secondItem="ack-j1-61h" secondAttribute="bottom" id="Ivz-J6-KcZ"/>
+                            <constraint firstItem="ack-j1-61h" firstAttribute="trailing" secondItem="ciE-LN-CuT" secondAttribute="trailing" id="Jhg-mO-M65"/>
+                            <constraint firstItem="ack-j1-61h" firstAttribute="leading" secondItem="ciE-LN-CuT" secondAttribute="leading" id="pXi-6d-aR6"/>
+                            <constraint firstItem="ack-j1-61h" firstAttribute="top" secondItem="cc6-4n-ftL" secondAttribute="top" id="q1J-Ll-wDD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f88-DG-OFz"/>
@@ -310,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5o-9e-tVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3615.9420289855075" y="55.580357142857139"/>
+            <point key="canvasLocation" x="4000.0000000000005" y="35.491071428571423"/>
         </scene>
         <!--Filmler-->
         <scene sceneID="CFd-ot-VZ2">
@@ -1284,7 +1280,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
                     <navigationItem key="navigationItem" title="SATIN ALINAN FİLMLER" id="nLD-lD-MRB"/>
                     <connections>
                         <outlet property="collectionView" destination="Ijg-SA-Wbk" id="nOj-Ih-1Su"/>
-                        <segue destination="Dks-zl-LzW" kind="show" identifier="toDetailsFromPurchased" id="k0j-6f-peC"/>
+                        <segue destination="Dks-zl-LzW" kind="presentation" identifier="toDetailsFromPurchased" modalPresentationStyle="fullScreen" id="k0j-6f-peC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1w-sD-FbG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1427,7 +1423,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
     <inferredMetricsTieBreakers>
         <segue reference="LD3-DG-DPe"/>
         <segue reference="R1T-qV-Lmv"/>
-        <segue reference="RV0-wq-VCk"/>
+        <segue reference="hzQ-jI-oQt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bag.circle" catalog="system" width="128" height="123"/>

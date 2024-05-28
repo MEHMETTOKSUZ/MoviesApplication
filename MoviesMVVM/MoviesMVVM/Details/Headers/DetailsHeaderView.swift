@@ -30,12 +30,16 @@ class DetailsHeaderView: UICollectionReusableView , YTPlayerViewDelegate {
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var genresLabel: UILabel!
     
     var favoriteButtonClicked: (() -> ())?
     var commentButtonClicked: (() -> ())?
     var playButtonClicked: (() -> ())?
     var addCartButtonClicked: (() -> ())?
+    var backButtonClicked: (() -> ())?
+    var shareButtonClicked: (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -81,7 +85,7 @@ class DetailsHeaderView: UICollectionReusableView , YTPlayerViewDelegate {
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Arial-BoldMT", size: 17)
+        label.font = UIFont(name: "Arial-BoldMT", size: 15)
 
         return label
     }
@@ -105,7 +109,20 @@ class DetailsHeaderView: UICollectionReusableView , YTPlayerViewDelegate {
         genresLabel.addSubview(stackView)
 
     }
-
+    
+    
+    @IBAction func shareButtonClicked(_ sender: Any) {
+        
+        self.shareButtonClicked?()
+        
+    }
+    
+    
+    @IBAction func backButtonClicked(_ sender: Any) {
+        
+        self.backButtonClicked?()
+    }
+    
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
         
@@ -140,17 +157,17 @@ class DetailsHeaderView: UICollectionReusableView , YTPlayerViewDelegate {
             }
         }
     }
-    
-    func updateHeaderView(with contentOffset: CGPoint) {
-        if contentOffset.y < 0 {
-            let height = 441 - contentOffset.y
-            let width = UIScreen.main.bounds.width + (-contentOffset.y)
-            let x = -(-contentOffset.y / 2)
-            posterImage.frame = CGRect(x: x, y: contentOffset.y, width: width, height: height)
-        } else {
-            posterImage.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 441)
-        }
-    }
+  
+ /*   func updateHeaderView(with contentOffset: CGPoint) {
+            if contentOffset.y < 0 {
+                let height = 441 - contentOffset.y
+                let width = UIScreen.main.bounds.width + (-contentOffset.y)
+                let x = -(-contentOffset.y / 2)
+                posterImage.frame = CGRect(x: x, y: contentOffset.y, width: width, height: height)
+            } else {
+                posterImage.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 441)
+            }
+        } */
 }
 
 
