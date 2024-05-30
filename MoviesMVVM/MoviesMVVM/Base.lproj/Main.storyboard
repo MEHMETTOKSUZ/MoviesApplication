@@ -149,6 +149,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n2C-33-2cB">
+                                <rect key="frame" x="43" y="211" width="337" height="311"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="olK-Xl-p5e">
                                 <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <color key="backgroundColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,6 +170,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="C06-FJ-raf"/>
                     <connections>
+                        <outlet property="animationImageView" destination="n2C-33-2cB" id="LAH-UX-Den"/>
                         <outlet property="tableView" destination="olK-Xl-p5e" id="0hX-6R-4in"/>
                         <segue destination="Dks-zl-LzW" kind="presentation" identifier="detailsFromSearch" modalPresentationStyle="fullScreen" id="wBC-nn-Oh7"/>
                     </connections>
@@ -325,9 +330,11 @@
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="30"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" red="0.018918571820000001" green="0.02697424616" blue="0.1121998026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1423,7 +1430,7 @@ Film uygulamamız, sinema ve film tutkunlarının keyifle izleyebileceği bir uy
     <inferredMetricsTieBreakers>
         <segue reference="LD3-DG-DPe"/>
         <segue reference="R1T-qV-Lmv"/>
-        <segue reference="hzQ-jI-oQt"/>
+        <segue reference="RV0-wq-VCk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bag.circle" catalog="system" width="128" height="123"/>

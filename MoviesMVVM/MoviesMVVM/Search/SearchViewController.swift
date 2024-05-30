@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Lottie
 
 class SearchViewController: UIViewController {
     
     
     let viewModel = SearchViewModel()
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var animationImageView: UIImageView!
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -20,16 +22,50 @@ class SearchViewController: UIViewController {
         let nibname = UINib(nibName: "HomeTableViewCell", bundle: nil)
         tableView.register(nibname, forCellReuseIdentifier: "HomeTableViewCell")
         
-        
         tableView.delegate = self
         tableView.dataSource = self
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Movie"
+        searchController.searchBar.searchTextField.textColor = .white
+        searchController.searchBar.searchTextField.leftView?.tintColor = .white
+        searchController.searchBar.tintColor = .white
         definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
+               
+        navigationItem.searchController = searchController
+               
+               animationImageView.isHidden = false
+               tableView.isHidden = true
+               customizeSearchBarAppearance()
+               setUpAnimation()
         
+    }
+    
+    func setUpAnimation() {
+            let animation = LottieAnimationView(name: "search")
+            animation.contentMode = .scaleAspectFill
+            animation.center = self.animationImageView.center
+            animation.frame = self.animationImageView.bounds
+            animation.loopMode = .loop
+            animation.play()
+            self.animationImageView.addSubview(animation)
+        }
+    
+    func customizeSearchBarAppearance() {
+            searchController.searchBar.searchTextField.textColor = .white
+            searchController.searchBar.searchTextField.leftView?.tintColor = .white
+            searchController.searchBar.tintColor = .white
+            
+            if let searchTextField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+                searchTextField.textColor = .white
+                searchTextField.tintColor = .white
+                if let backgroundView = searchTextField.subviews.first {
+                    backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.15)
+                    backgroundView.layer.cornerRadius = 10
+                    backgroundView.clipsToBounds = true
+                }
+            }
     }
 }
 
@@ -78,11 +114,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISe
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        if let query = searchController.searchBar.text {
-            viewModel.searchResponse(query: query)
-            tableView.reloadData()
+            if let query = searchController.searchBar.text, !query.isEmpty {
+                viewModel.searchResponse(query: query)
+                animationImageView.isHidden = true
+                tableView.isHidden = false
+                tableView.reloadData()
+            } else {
+                animationImageView.isHidden = false
+                tableView.isHidden = true
+            }
         }
-    }
     
 }
 

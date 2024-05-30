@@ -18,7 +18,7 @@ class MoviesViewController: UIViewController {
         
         let nibname = UINib(nibName: "HomeTableViewCell", bundle: nil)
         tableView.register(nibname, forCellReuseIdentifier: "HomeTableViewCell")
-        
+
         viewmodel = GenresMoviesViewModel(genre: genre)
         viewmodel.fetchMovies()
         self.viewmodel.didFinishLoad = {

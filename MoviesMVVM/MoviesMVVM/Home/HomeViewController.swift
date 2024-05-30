@@ -53,16 +53,20 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func setUpTableAndHeader() {
-        let headerView = CollectionHeadersView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 350))
-        headerView.collectionView.delegate = self
-        headerView.collectionView.dataSource = self
-        tableView.tableHeaderView = headerView
+            let headerView = CollectionHeadersView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 390))
+            headerView.collectionView.delegate = self
+            headerView.collectionView.dataSource = self
+            tableView.tableHeaderView = headerView
+            
+            headerView.pageControl.numberOfPages = headerViewModel.numberOfItemInSection
         
-        headerViewModel.didFinishLoad = {
-            DispatchQueue.main.async {
-                headerView.collectionView.reloadData()
+            
+            headerViewModel.didFinishLoad = {
+                DispatchQueue.main.async {
+                    headerView.collectionView.reloadData()
+                    headerView.pageControl.numberOfPages = self.headerViewModel.numberOfItemInSection
+                }
             }
-        }
         
         viewModel.didFinishLoad = {
             DispatchQueue.main.async {
@@ -139,6 +143,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource, UIColl
         _ = headerViewModel.item(at: indexPath.row)
         performSegue(withIdentifier: "detailsFromHomeCollection", sender: indexPath)
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            let pageWidth = scrollView.frame.width - 32
+            let currentPage = Int((scrollView.contentOffset.x + (0.5 * pageWidth)) / pageWidth)
+            if let headerView = tableView.tableHeaderView as? CollectionHeadersView {
+                headerView.pageControl.currentPage = currentPage
+            }
+        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
