@@ -57,6 +57,10 @@ class CartManager {
         }
     }
     
+    func isInCart(item: Results) -> Bool {
+        return items.contains {$0.id == item.id}
+    }
+    
     func calculateTotalPrice() -> (purchaseTotal: Double, rentTotal: Double) {
         let purchaseTotal = Double(items.count) * 2.99
         let rentTotal = Double(items.count) * 0.99

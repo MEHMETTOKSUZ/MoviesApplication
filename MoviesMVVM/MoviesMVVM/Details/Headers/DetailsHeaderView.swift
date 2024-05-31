@@ -72,6 +72,9 @@ class DetailsHeaderView: UICollectionReusableView , YTPlayerViewDelegate {
         let imageName : String = item.isFavorite ? "star.fill": "star"
         self.favoriteButton.setImage(UIImage(systemName: imageName), for: .normal)
         
+        let cartImage: String = item.isInCart ? "basket.fill" : "basket"
+        self.addCartButton.setImage(UIImage(systemName: cartImage), for: .normal)
+        
         self.addCartButton.isHidden = item.isAddedCart || item.isRented
         
     }

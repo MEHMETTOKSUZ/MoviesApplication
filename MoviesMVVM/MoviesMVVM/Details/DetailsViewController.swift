@@ -21,9 +21,9 @@ class DetailsViewController: UIViewController, YTPlayerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
         PaymentManager.shared.loadPurchasedItems()
         RentManager.shared.loadRentedItems()
+        CartManager.shared.loadCartItems()
         registerCells()
         loadData()
         
@@ -139,6 +139,8 @@ extension DetailsViewController: UICollectionViewDataSource, UICollectionViewDel
             
             if let data = self.viewModel.UIModel.data {
                 CartManager.shared.add(item: data.data)
+                view.itemFromCell(item: self.viewModel.UIModel)
+                NotificationCenter.default.post(name: NSNotification.Name("MoviesAdded"), object: nil)
             } else {
                 print("Sepete eklenemedi")
             }

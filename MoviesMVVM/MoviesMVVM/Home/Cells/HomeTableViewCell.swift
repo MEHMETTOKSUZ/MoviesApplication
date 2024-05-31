@@ -29,6 +29,7 @@ class HomeTableViewCell: UITableViewCell {
         var isRented: Bool {
             RentManager.shared.isRented(item: data)
         }
+        
     }
     
     @IBOutlet weak var posterImage: UIImageView!

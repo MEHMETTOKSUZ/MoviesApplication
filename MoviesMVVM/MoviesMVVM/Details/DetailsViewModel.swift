@@ -40,6 +40,14 @@ struct DetailsUIModel {
             return false
         }
     }
+    
+    var isInCart: Bool {
+        if let data = data?.data {
+            return CartManager.shared.isInCart(item: data)
+        } else {
+            return false
+        }
+    }
 }
 
 class DetailsViewModel {
